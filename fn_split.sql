@@ -6,7 +6,7 @@ ALTER FUNCTION dbo.fn_split (@Text varchar(8000), @Token varchar(20) = ',')
 RETURNS TABLE
 /*************************************************************************************************
 AUTHOR: Andy Mallon
-CREATED: 2014-04-21
+CREATED: 2014-04-20
 	Convert a delimited string (any delimiter can be passed, default assumes CSV.
 
 	Use method of converting the CSV value into an XML document to make shredding more efficient.
