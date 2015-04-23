@@ -27,10 +27,11 @@ MODIFICATIONS:
 *************************************************************************************************/
 AS
 RETURN
-SELECT ID = ROW_NUMBER() OVER (ORDER BY Value)
+SELECT ID
 	, Value
 FROM (
-	SELECT Value = LTRIM(RTRIM(m.n.value('.[1]','varchar(8000)')))
+	SELECT  ID = m.n.value('for $i in . return count(../*[. << $i]) + 1', 'int')
+		, Value = LTRIM(RTRIM(m.n.value('.[1]','varchar(8000)')))
 	FROM (
 		SELECT CAST('<XMLRoot><RowData>' + REPLACE(@Text,@Token,'</RowData><RowData>') + '</RowData></XMLRoot>' AS XML) AS x
 		)t
