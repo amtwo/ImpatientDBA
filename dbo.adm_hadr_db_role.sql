@@ -1,4 +1,4 @@
-CREATE FUNCTION dbo.am2_hadr_db_role
+CREATE FUNCTION dbo.adm_hadr_db_role
 (
 	@Name sysname
 )
